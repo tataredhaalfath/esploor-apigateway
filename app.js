@@ -21,6 +21,7 @@ const webhookRouter = require("./routes/webhook");
 const verifyToken = require("./middlewares/verifyToken");
 const can = require("./middlewares/permission");
 
+const cors = require('cors')
 const app = express();
 
 app.use(logger("dev"));
@@ -28,6 +29,8 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: false, limit: "50mb" }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
