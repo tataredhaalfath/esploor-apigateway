@@ -32,18 +32,18 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/courses", coursesRouter);
-app.use("/chapters", verifyToken, can("admin"), chaptersRouter);
-app.use("/lessons", verifyToken, can("admin"), lessonsRouter);
-app.use("/media", verifyToken, can("admin", "student"), mediaRouter);
-app.use("/orders", verifyToken, can("admin", "student"), orderPaymentsRouter);
-app.use("/refresh-tokens", refreshTokensRouter);
-app.use("/mentors", verifyToken,can('admin'), mentorsRouter);
-app.use("/image-courses", verifyToken, can('admin'), imageCoursesRouter);
-app.use("/my-courses", verifyToken,can('admin','student'), myCoursesRouter);
-app.use("/reviews", verifyToken,can('admin','student'), reviewsRouter);
-app.use("/webhook", webhookRouter);
+app.use("/api/v1/", indexRouter);
+app.use("/api/v1/users", usersRouter);
+app.use("/api/v1/courses", coursesRouter);
+app.use("/api/v1/chapters", verifyToken, can("admin"), chaptersRouter);
+app.use("/api/v1/lessons", verifyToken, can("admin"), lessonsRouter);
+app.use("/api/v1/media", verifyToken, can("admin", "student"), mediaRouter);
+app.use("/api/v1/orders", verifyToken, can("admin", "student"), orderPaymentsRouter);
+app.use("/api/v1/refresh-tokens", refreshTokensRouter);
+app.use("/api/v1/mentors", verifyToken,can('admin'), mentorsRouter);
+app.use("/api/v1/image-courses", verifyToken, can('admin'), imageCoursesRouter);
+app.use("/api/v1/my-courses", verifyToken,can('admin','student'), myCoursesRouter);
+app.use("/api/v1/reviews", verifyToken,can('admin','student'), reviewsRouter);
+app.use("/api/v1/webhook", webhookRouter);
 
 module.exports = app;
